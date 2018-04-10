@@ -1,0 +1,28 @@
+language: node_js
+node_js: 
+  - "8"
+# dist is distribution, base image vitural machine
+# trusty - a small verison of linux works well with small vitural machine
+dist: trusty
+services: 
+  - mongodb
+  - redis-server
+# environment variables
+env:
+  - NODE_ENV=ci
+  - PORT=3000
+cache:
+  directories:
+    - node_modules
+    - client/node_modules
+install: 
+  - npm install
+  - npm run build
+# nohup: if the shell is closed, dont kill anything this command creates
+# npm run start: run the server
+# &: run this command in a subshell (in the background)
+# sleep 3: to sleep 3 seconds
+script:
+  - nohup npm run start & 
+  - sleep 3 
+  - npm run test
