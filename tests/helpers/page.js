@@ -4,7 +4,8 @@ const userFactory = require('../factories/userFactory');
 
 class CustomPage {
   static async build() {
-    // --no-sandbox to help the test run faster
+    // --no-sandbox to help the test run faster, need to do more research
+    // about it
     const browser = await puppeteer.launch({
       headless: true,
       args: ['--no-sandbox']
