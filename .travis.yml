@@ -9,8 +9,7 @@ services:
   - redis-server
 # environment variables
 env:
-  - NODE_ENV=ci
-  - PORT=3000
+  - NODE_ENV=ci PORT=3000
 cache:
   directories:
     - node_modules
